@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: producer
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: user-out
+      rabbit:
+        bindings:
+          output:
+            producer:
+              exchangeType: direct
+              routingKeyExpression: '"#"'

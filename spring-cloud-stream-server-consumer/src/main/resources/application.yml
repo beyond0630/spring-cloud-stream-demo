@@ -1,0 +1,18 @@
+server:
+  port: 9080
+
+spring:
+  application:
+    name: consumer
+  rabbitmq:
+    host: localhost
+    port: 5672
+  cloud:
+    function:
+      definition: processName;userConsumer
+    stream:
+      function:
+        bindings:
+          processName-in-0: user
+          processName-out-0: user-1
+          userConsumer-in-0: user-1
